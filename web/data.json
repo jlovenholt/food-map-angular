@@ -1,0 +1,114 @@
+{
+  "meditech": [
+    {
+      "id": "mtka",
+      "name": "Minnetonka",
+      "lat": 44.9106355,
+      "lng": -93.503853
+    },
+    {
+      "id": "cntn",
+      "name": "Canton",
+      "lat": 42.2043102,
+      "lng": -71.1117684
+    },
+    {
+      "id": "fxbh",
+      "name": "Foxborough",
+      "lat": 42.041818,
+      "lng": -71.239349
+    },
+    {
+      "id": "frhm",
+      "name": "Framingham",
+      "lat": 42.308311,
+      "lng": -71.390333
+    },
+    {
+      "id": "lrbk",
+      "name": "Lowder Brook",
+      "lat": 42.240613,
+      "lng": -71.207798
+    },
+    {
+      "id": "nrwd",
+      "name": "Norwood",
+      "lat": 42.197459,
+      "lng": -71.172032
+    },
+    {
+      "id": "stct",
+      "name": "Southcoast",
+      "lat": 41.680477,
+      "lng": -71.130046
+    },
+    {
+      "id": "wthm",
+      "name": "Waltham",
+      "lat": 42.385731,
+      "lng": -71.263275
+    },
+    {
+      "id": "wtwd",
+      "name": "Westwood",
+      "lat": 42.2224029,
+      "lng": -71.1741529
+    },
+    {
+      "id": "edpr",
+      "name": "Eden Prairie",
+      "lat": 44.888183,
+      "lng": -93.417079
+    },
+    {
+      "id": "atla",
+      "name": "Atlanta",
+      "lat": 33.800445,
+      "lng": -84.407246
+    }
+  ],
+  "restaurants": [
+    {
+      "id": "IkesMinnetonka",
+      "name": "Ike's Minnetonka",
+      "lat": 44.912069,
+      "lng": -93.50600099999997,
+      "website": "http://www.restaurantsminnetonkamn.com/",
+      "reviews": [
+        {
+          "val": 3,
+          "cmt": "Great for HH"
+        },
+        {
+          "val": 4,
+          "cmt": "Good olde Canadian, eh"
+        },
+        {
+          "val": 3,
+          "cmt": "Pretty good, Jon likes the mac and cheese"
+        }
+      ]
+    },
+    {
+      "id": "GiacomosRestaurant",
+      "name": "Giacomo's Restaurant",
+      "lat": 42.364596,
+      "lng": -71.05344300000002,
+      "website": "http://giacomosblog-boston.blogspot.com/",
+      "reviews": [
+        {
+          "val": 3,
+          "cmt": "Testing test"
+        },
+        {
+          "val": 4,
+          "cmt": "WWWWWWWWWW WWWWWWWWWWWWWWWW WWWWWWWWWWWWWWWWWWWW WWWWWW"
+        },
+        {
+          "val": 3,
+          "cmt": "What does the fox say?"
+        }
+      ]
+    }
+  ]
+}
