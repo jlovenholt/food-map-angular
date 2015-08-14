@@ -7,8 +7,8 @@ import 'package:angular/angular.dart';
 
 @Component(
     selector: 'about',
-    templateUrl: 'about.html',
-    cssUrl: 'about.css')
+    templateUrl: 'packages/food_map/component/about.html',
+    cssUrl: 'packages/food_map/component/about.css')
 class AboutComponent {
 
 }

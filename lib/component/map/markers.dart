@@ -13,14 +13,16 @@ import 'package:food_map/service/meditech_building.dart';
 import 'package:food_map/service/restaurant.dart';
 import 'package:food_map/component/map.dart';
 
+InfoWindow infowindow = new InfoWindow();
+
 //////////////////////////////////////////////
 ///MEDITECH Building Markers
 //////////////////////////////////////////////
 
-void addMedBuilding(Building building) {
+void addMedBuilding(Building building, GMap _map) {
   final medMarker = new Marker(new MarkerOptions()
     ..position = new LatLng(building.lat, building.lng)
-    ..map = map
+    ..map = _map
     ..icon = medImg
     ..shape = shape
     ..animation = Animation.DROP
@@ -28,7 +30,7 @@ void addMedBuilding(Building building) {
     ..zIndex = 1);
 
   medMarker.onClick.listen((e) {
-    openInfoWindow(buildingInfoWindow(building), medMarker);
+    openInfoWindow(buildingInfoWindow(building), medMarker, _map);
   });
 }
 
@@ -41,10 +43,10 @@ buildingInfoWindow(Building build) {
 ///Restaurant Markers
 //////////////////////////////////////////////
 
-void addRestaurant(Restaurant restaurant) {
+void addRestaurant(Restaurant restaurant, GMap _map) {
   final restMarker = new Marker(new MarkerOptions()
     ..position = new LatLng(restaurant.lat, restaurant.lng)
-    ..map = map
+    ..map = _map
     ..icon = restImg
     ..shape = shape
     ..animation = Animation.DROP
@@ -52,7 +54,7 @@ void addRestaurant(Restaurant restaurant) {
     ..zIndex = 5);
 
   restMarker.onClick.listen((e) {
-    openInfoWindow(restaurantInfoWindow(restaurant), restMarker);
+    openInfoWindow(restaurantInfoWindow(restaurant), restMarker, _map);
   });
 }
 
@@ -89,10 +91,10 @@ String buildInfoReviews(Restaurant rest) {
 
 /////////////////////////////////////////////////
 
-openInfoWindow(String content,Marker marker) {
+openInfoWindow(String content,Marker marker, GMap _map) {
   if (infowindow != null) {
     infowindow.close();
   }
   infowindow.content = content;
-  infowindow.open(map, marker);
+  infowindow.open(_map, marker);
 }

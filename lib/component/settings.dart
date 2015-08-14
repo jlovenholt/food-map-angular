@@ -7,8 +7,8 @@ import 'package:angular/angular.dart';
 
 @Component(
     selector: 'settings',
-    templateUrl: 'settings.html',
-    cssUrl: 'settings.css')
+    templateUrl: 'packages/food_map/component/settings.html',
+    cssUrl: 'packages/food_map/component/settings.css')
 class SettingsComponent {
 
 }
