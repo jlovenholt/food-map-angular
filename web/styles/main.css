@@ -243,14 +243,6 @@ main {
   right: 0;
 }
 
-#map-canvas {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
-
 @media all and (min-width: 800px) {
   .app-bar {
     position: relative
@@ -378,4 +370,8 @@ main {
 
 .info-button {
   color: #888888;
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], .ng-cloak, .ng-hide {
+  display: none !important;
 }

@@ -11,7 +11,6 @@ import 'package:food_map/menu_control.dart';
 
 class MyAppModule extends Module {
   MyAppModule() {
-    bind(MenuControl);
     bind(MapComponent);
     bind(SettingsComponent);
     bind(AboutComponent);
@@ -21,5 +20,8 @@ class MyAppModule extends Module {
 }
 
 void main() {
-  applicationFactory().addModule(new MyAppModule()).run();
+  initNavMenu();
+  applicationFactory()
+  .rootContextType(MenuControl)
+  .addModule(new MyAppModule()).run();
 }
