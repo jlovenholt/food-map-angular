@@ -31,7 +31,7 @@
       </button>
       <h1 class="title">Meditech Food Map</h1>
       <section class="app-bar-actions">
-        <button class="add-btn">
+        <button>
           <i class="icon icon-search icon-2x"></i>
         </button>
         <!--<button class="add-btn">-->
@@ -42,27 +42,27 @@
   </header>
   <div id="overlay" style="display: none"></div>
   <nav class="navdrawer-container promote-layer">
-    <h4>Navigation</h4>
-    <ul>
-      <li><button class="menu-btn" ng-click="menuOption = 'map'"><i class="icon icon-map icon-fw"></i>  Map</button></li>
-      <li><button class="menu-btn" ng-click="menuOption = 'settings'"><i class="icon icon-cog icon-fw"></i>  Settings</button></li>
-      <li><button class="menu-btn" ng-click="menuOption = 'about'"><i class="icon icon-info icon-fw"></i> About</button></li>
+    <div class="navdrawer-header">Navigation</div>
+    <ul class="menu-btns">
+      <li class="button"><button ng-click="menuOption = 'map'"><i class="icon icon-map icon-fw"></i>  Map</button></li>
+      <li class="button"><button ng-click="menuOption = 'settings'"><i class="icon icon-cog icon-fw"></i>  Settings</button></li>
+      <li class="button"><button ng-click="menuOption = 'about'"><i class="icon icon-info icon-fw"></i> About</button></li>
     </ul>
   </nav>
   <main>
-  <div class="pages" ng-switch="menuOption">
-    <div ng-switch-default="map">
-      <map></map>
+  <div>
+    <div ng-show="menuOption == 'map'">
+      <map id="map-canvas"></map>
     </div>
-    <div ng-switch-when="about">
+    <div  ng-show="menuOption == 'about'">
       <about></about>
     </div>
-    <div ng-switch-when="settings">
+    <div  ng-show="menuOption == 'settings'">
       <settings></settings>
     </div>
   </div>
   </main>
-    <script src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
+    <script src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
     <script type="application/dart" src="main.dart"></script>
     <script src="packages/browser/dart.js"></script>
   </body>

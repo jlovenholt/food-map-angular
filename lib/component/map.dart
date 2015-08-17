@@ -15,7 +15,7 @@ import 'dart:convert';
 
 @Component(
     selector: 'map',
-    templateUrl: 'packages/food_map/component/map.html',
+    template: '<div id="map-canvas">"test"</div>',
     cssUrl: 'packages/food_map/component/map.css')
 class MapComponent implements ShadowRootAware {
 
@@ -29,7 +29,6 @@ class MapComponent implements ShadowRootAware {
     ..minZoom = 6
     ..maxZoom = 20
     ..styles = retroMapStyle;
-
 
   onShadowRoot(root) {
     importData();

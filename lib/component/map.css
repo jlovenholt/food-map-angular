@@ -5,3 +5,47 @@
   left: 0;
   right: 0;
 }
+
+.info-window {
+  max-width: 300px;
+}
+
+.info-header {
+  font-weight: 400;
+  font-size: 1.2rem;
+}
+
+.icon-star {
+  color: #9e4f00;
+}
+
+.info-window button {
+  background-image: none;
+  background-color: transparent;
+  font-size: medium;
+  color: #888888;
+  padding: .2rem .2rem;
+  border: none;
+  display: inline-block;
+  -webkit-transition: background-color 0.5s ease-out;
+  transition: background-color 0.5s ease-out;
+  -webkit-tap-highlight-color: transparent
+}
+
+.info-window button:hover {
+  background-color: rgba(67, 134, 244, 0.3)
+}
+
+.info-window button:active {
+  background-color: rgba(67, 134, 244, 0.5)
+}
+
+.info-button {
+  color: #888888;
+}
+
+.info-button {
+  font-size: 1rem;
+  line-height: 1.25rem;
+  font-weight: normal;
+}
