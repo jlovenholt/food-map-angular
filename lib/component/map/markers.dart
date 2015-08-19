@@ -64,7 +64,7 @@ String restaurantInfoWindow(Restaurant rest) {
   '<div class="info-header">${rest.name}'
   '<button>'
   '<a href="${rest.website}" target="_blank">     '
-  '<i class="icon icon-external-link-square info-button"></i>'
+  '<i class="fa fa-external-link-square info-button"></i>'
   '</a>'
   '</button>'
   '</div>' +
@@ -78,7 +78,7 @@ String buildInfoReviews(Restaurant rest) {
   rest.reviews.forEach((review) {
     String starHtml = "";
     for (int i = 0; i < review.val; i++) {
-      starHtml = starHtml + '<i class="icon icon-star"></i>';
+      starHtml = starHtml + '<i class="fa fa-star"></i>';
     }
     reviewHtml = reviewHtml +
     '<div class="info-review">' +

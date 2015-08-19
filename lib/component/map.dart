@@ -15,8 +15,9 @@ import 'dart:convert';
 
 @Component(
     selector: 'map',
-    template: '<div id="map-canvas">"test"</div>',
-    cssUrl: 'packages/food_map/component/map.css')
+    templateUrl: 'packages/food_map/component/map.html',
+    cssUrl: const ['packages/food_map/component/map.css',
+    'packages/food_map/font-awesome/css/font-awesome.min.css'])
 class MapComponent implements ShadowRootAware {
 
   GMap _map;

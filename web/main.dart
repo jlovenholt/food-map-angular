@@ -20,7 +20,6 @@ class MyAppModule extends Module {
 }
 
 void main() {
-  initNavMenu();
   applicationFactory()
   .rootContextType(MenuControl)
   .addModule(new MyAppModule()).run();

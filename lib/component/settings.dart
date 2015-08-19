@@ -8,7 +8,8 @@ import 'package:angular/angular.dart';
 @Component(
     selector: 'settings',
     templateUrl: 'packages/food_map/component/settings.html',
-    cssUrl: 'packages/food_map/component/settings.css')
+    cssUrl: const ['packages/food_map/component/settings.css',
+    'packages/food_map/font-awesome/css/font-awesome.min.css'])
 class SettingsComponent {
 
 }

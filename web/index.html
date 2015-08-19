@@ -4,66 +4,62 @@
   is governed by a BSD-style license that can be found in the LICENSE file.
 -->
 <html ng-app>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Food Map Angular</title>
-    <link rel="icon" type="image/png" href="styles/favicon.png">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Food Map Angular</title>
+  <link rel="icon" type="image/png" href="styles/favicon.png">
+  <link rel="stylesheet" href="packages/food_map/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/normalize.css">
+</head>
 
-    <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/normalize.css">
-    <script src="https://use.fonticons.com/6be37c48.js"></script>
-    <!--icon-map            icon-info           icon-cog-->
-    <!--icon-floppy-o       icon-star           icon-external-link-square-->
-    <!--icon-plus-square    icon-check-square   icon-square-->
-    <!--icon-github-square  icon-plus           icon-envelope-square-->
-    <!--icon-search         icon-filter         icon-toggle-on-->
-    <!--icon-toggle-off     icon-bars-->
-  </head>
+<body ng-cloak>
 
-  <body ng-cloak>
-
-  <header class="app-bar promote-layer">
-    <div class="app-bar-container">
-      <button class="menu">
-        <i class="icon icon-bars icon-2x"></i>
+<header class="app-bar promote-layer">
+  <div class="app-bar-container">
+    <button class="menu" ng-click="onBarsClick()">
+      <i class="fa fa-bars fa-2x"></i>
+    </button>
+    <h1 class="title">Meditech Food Map</h1>
+    <section class="app-bar-actions">
+      <button>
+        <i class="fa fa-search fa-2x"></i>
       </button>
-      <h1 class="title">Meditech Food Map</h1>
-      <section class="app-bar-actions">
-        <button>
-          <i class="icon icon-search icon-2x"></i>
-        </button>
-        <!--<button class="add-btn">-->
-          <!--<i class="icon icon-floppy-o icon-2x"></i>-->
-        <!--</button>-->
-      </section>
-    </div>
-  </header>
-  <div id="overlay" style="display: none"></div>
-  <nav class="navdrawer-container promote-layer">
-    <div class="navdrawer-header">Navigation</div>
-    <ul class="menu-btns">
-      <li class="button"><button ng-click="menuOption = 'map'"><i class="icon icon-map icon-fw"></i>  Map</button></li>
-      <li class="button"><button ng-click="menuOption = 'settings'"><i class="icon icon-cog icon-fw"></i>  Settings</button></li>
-      <li class="button"><button ng-click="menuOption = 'about'"><i class="icon icon-info icon-fw"></i> About</button></li>
-    </ul>
-  </nav>
-  <main>
+    </section>
+  </div>
+</header>
+<div id="overlay" style="display: none"></div>
+<nav class="navdrawer-container promote-layer">
+  <div class="navdrawer-header">Navigation</div>
+  <ul class="menu-btns">
+    <li class="button" ng-click="onMenuListClick('map')">
+      <div><i class="fa fa-map fa-fw"></i> Map</div>
+    </li>
+    <li class="button" ng-click="onMenuListClick('settings')">
+      <div><i class="fa fa-cog fa-fw"></i> Settings</div>
+    </li>
+    <li class="button" ng-click="onMenuListClick('about')">
+      <div><i class="fa fa-info fa-fw"></i> About</div>
+    </li>
+  </ul>
+</nav>
+<main ng-click="onBodyClick()">
   <div>
     <div ng-show="menuOption == 'map'">
       <map id="map-canvas"></map>
     </div>
-    <div  ng-show="menuOption == 'about'">
+    <div ng-show="menuOption == 'about'">
       <about></about>
     </div>
-    <div  ng-show="menuOption == 'settings'">
+    <div ng-show="menuOption == 'settings'">
       <settings></settings>
     </div>
   </div>
-  </main>
-    <script src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
-    <script type="application/dart" src="main.dart"></script>
-    <script src="packages/browser/dart.js"></script>
-  </body>
+</main>
+<script src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
+<script type="application/dart" src="main.dart"></script>
+<script src="packages/browser/dart.js"></script>
+</body>
 </html>
