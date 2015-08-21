@@ -6,23 +6,31 @@ library map_component;
 import 'package:angular/angular.dart';
 import 'package:google_maps/google_maps.dart';
 import 'package:food_map/service/map_ui.dart';
-import 'package:food_map/service/restaurant.dart';
-import 'package:food_map/service/meditech_building.dart';
+import 'package:food_map/service/class_restaurant.dart';
+import 'package:food_map/service/class_meditech.dart';
 import 'package:food_map/component/map/markers.dart';
+import 'package:google_maps/google_maps_places.dart';
 
 import 'dart:html' hide Animation, Point;
 import 'dart:convert';
 
+part "map/restaurant_search.dart";
+
+GMap _map;
+List<Building> buildings = [];
+List<Restaurant> restaurants = [];
+
 @Component(
     selector: 'map',
     templateUrl: 'packages/food_map/component/map.html',
-    cssUrl: const ['packages/food_map/component/map.css',
-    'packages/food_map/font-awesome/css/font-awesome.min.css'])
+    cssUrl: const [
+  'packages/food_map/component/map.css',
+  'packages/food_map/font-awesome/css/font-awesome.min.css'
+])
 class MapComponent implements ShadowRootAware {
+  bool _searchMap;
 
-  GMap _map;
-
-  final markers = <Marker> [];
+  final markers = <Marker>[];
   final mapOptions = new MapOptions()
     ..zoom = 10
     ..mapTypeControl = false
@@ -31,23 +39,34 @@ class MapComponent implements ShadowRootAware {
     ..maxZoom = 20
     ..styles = retroMapStyle;
 
+  @NgTwoWay("search-map")
+  bool get searchMap => _searchMap;
+  void set searchMap(values) {
+    print("values " + values.toString());
+    if (values) {
+      searchByRadius();
+    }
+    print("1_searchMap " + _searchMap.toString() + " searchMap " + searchMap.toString());
+    _searchMap = false;
+    print("2_searchMap " + _searchMap.toString() + " searchMap " + searchMap.toString());
+  }
+
   onShadowRoot(root) {
     importData();
     _map = new GMap(root.querySelector("#map-canvas"), mapOptions);
 
     // Try HTML5 geolocation
     window.navigator.geolocation.getCurrentPosition().then((position) {
-      final initPos = new LatLng(position.coords.latitude, position.coords.longitude);
+      final initPos =
+          new LatLng(position.coords.latitude, position.coords.longitude);
       _map.center = initPos;
     }, onError: (error) {
       final initPos = new LatLng(44.9106355, -93.503853);
       _map.center = initPos;
-      print('ERROR: Geolocation service failed.  Defaulting to Minnetonka building');
+      print(
+          'ERROR: Geolocation service failed.  Defaulting to Minnetonka building');
     });
   }
-
-  List<Building> buildings = [];
-  List<Restaurant> restaurants = [];
 
   importData() {
     HttpRequest.getString('data.json').then((response) {

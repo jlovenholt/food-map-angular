@@ -6,7 +6,7 @@ import 'dart:html';
 @Injectable()
 class MenuControl implements ScopeAware {
   String username = "";
-  final filterShow = false;
+  bool searchMap = false;
 
   String menuOption = 'map';
   Scope scope;
@@ -15,6 +15,12 @@ class MenuControl implements ScopeAware {
   var appbarElement = querySelector('.app-bar');
 
   MenuControl() {
+  }
+
+  restSearch(){
+    print("rest1_SearchMap " + searchMap.toString());
+   searchMap = true;
+    print("rest2_SearchMap " + searchMap.toString());
   }
 
   onMenuListClick(String page){

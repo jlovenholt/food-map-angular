@@ -9,8 +9,8 @@ import 'dart:convert';
 import 'package:google_maps/google_maps.dart';
 import 'package:google_maps/google_maps_places.dart';
 import 'package:food_map/service/map_ui.dart';
-import 'package:food_map/service/meditech_building.dart';
-import 'package:food_map/service/restaurant.dart';
+import 'package:food_map/service/class_meditech.dart';
+import 'package:food_map/service/class_restaurant.dart';
 import 'package:food_map/component/map.dart';
 
 InfoWindow infowindow = new InfoWindow();
