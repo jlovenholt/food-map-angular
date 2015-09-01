@@ -2,6 +2,7 @@ library menu_control;
 
 import "package:angular/angular.dart";
 import 'dart:html';
+import 'package:food_map/component/map.dart';
 
 @Injectable()
 class MenuControl implements ScopeAware {
@@ -17,10 +18,8 @@ class MenuControl implements ScopeAware {
   MenuControl() {
   }
 
-  restSearch(){
-    print("rest1_SearchMap " + searchMap.toString());
-   searchMap = true;
-    print("rest2_SearchMap " + searchMap.toString());
+  restaurantSearch(){
+    searchByRadius();
   }
 
   onMenuListClick(String page){

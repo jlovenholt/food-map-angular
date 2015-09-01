@@ -22,9 +22,9 @@
     <button class="menu" ng-click="onBarsClick()">
       <i class="fa fa-bars fa-2x"></i>
     </button>
-    <h1 class="title">Meditech Food Map</h1>
+    <!--<h1 class="title">Meditech Food Map</h1>-->
     <section class="app-bar-actions">
-      <button ng-click="restSearch()">
+      <button ng-click="restaurantSearch()">
         <i class="fa fa-search fa-2x"></i>
       </button>
     </section>
@@ -49,7 +49,7 @@
 <main ng-click="onBodyClick()">
   <div>
     <div ng-show="menuOption == 'map'">
-      <map search-map="searchMap" id="map-canvas"></map>
+      <map id="map-canvas"></map>
     </div>
     <div ng-show="menuOption == 'about'">
       <about></about>

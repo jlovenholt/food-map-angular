@@ -164,6 +164,7 @@ body.open {
   border-bottom-style: solid;
   border-width: 1px;
   border-color: white;
+  padding: 0 1rem;
 }
 
 .navdrawer-container ul li::before {

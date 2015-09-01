@@ -13,6 +13,7 @@ import 'package:google_maps/google_maps_places.dart';
 
 import 'dart:html' hide Animation, Point;
 import 'dart:convert';
+import 'dart:async';
 
 part "map/restaurant_search.dart";
 
@@ -23,10 +24,9 @@ List<Restaurant> restaurants = [];
 @Component(
     selector: 'map',
     templateUrl: 'packages/food_map/component/map.html',
-    cssUrl: const [
-  'packages/food_map/component/map.css',
-  'packages/food_map/font-awesome/css/font-awesome.min.css'
-])
+    cssUrl: const ['packages/food_map/component/map.css',
+    'packages/food_map/font-awesome/css/font-awesome.min.css'])
+
 class MapComponent implements ShadowRootAware {
   bool _searchMap;
 
@@ -39,17 +39,14 @@ class MapComponent implements ShadowRootAware {
     ..maxZoom = 20
     ..styles = retroMapStyle;
 
-  @NgTwoWay("search-map")
-  bool get searchMap => _searchMap;
-  void set searchMap(values) {
-    print("values " + values.toString());
-    if (values) {
-      searchByRadius();
-    }
-    print("1_searchMap " + _searchMap.toString() + " searchMap " + searchMap.toString());
-    _searchMap = false;
-    print("2_searchMap " + _searchMap.toString() + " searchMap " + searchMap.toString());
-  }
+//  @NgTwoWay("search-map")
+//  bool get searchMap => _searchMap;
+//  void set searchMap(values) {
+//    if (values) {
+//      searchByRadius();
+//    }
+//    _searchMap = false;
+//  }
 
   onShadowRoot(root) {
     importData();

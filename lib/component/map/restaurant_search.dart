@@ -22,7 +22,7 @@ searchByRadius() {
     ..types = ['restaurant'];
 
   void callback(List<PlaceResult> results, PlacesServiceStatus status,
-                PlaceSearchPagination pagination) {
+      PlaceSearchPagination pagination) {
     if (status == PlacesServiceStatus.OK) {
       for (var i = 0; i < results.length; i++) {
         createMarker(results[i]);
@@ -47,36 +47,36 @@ void createMarker(PlaceResult place) {
     ..zIndex = 3);
   searchMarkers.add(srchMarker);
 
-  addToRestaurants(e) {
+  addToRestaurants() {
     String id = (srchMarker.position.lat.toInt().toString() +
-                 place.name.replaceAll(new RegExp(r' '),'') +
-    srchMarker.position.lng.toInt().toString());
+        place.name.replaceAll(new RegExp(r' '), '') +
+        srchMarker.position.lng.toInt().toString());
     var restaurant = new Restaurant(id)
-        ..name = place.name
-        ..lat = srchMarker.position.lat
-        ..lng = srchMarker.position.lng
-        ..reviews = [new Review(3,'asdflkjh')]
-        ..show = true
-        ..website = place.website;
+      ..name = place.name
+      ..lat = srchMarker.position.lat
+      ..lng = srchMarker.position.lng
+      ..reviews = [new Review(3, 'asdflkjh')]
+      ..show = true
+      ..website = place.website;
     restaurants.add(restaurant);
-    addRestaurant(restaurant,_map);
+    addRestaurant(restaurant, _map);
     infowindow.close();
   }
 
   srchMarker.onClick.listen((e) {
-    openInfoWindow(searchInfoWindow(place), srchMarker, _map);
-    infoWindowAdd = querySelector('.addInfoBtn').onClick.listen(addToRestaurants);
+    infoWindowAdd = openInfoWindow(searchInfoWindow(place), srchMarker, _map);
   });
 }
 
 String searchInfoWindow(PlaceResult place) {
   String searchInfoContent =
-  '<div class="info-window">'
-    '<div class="info-header">${place.name}'
-      '<button>'
-        '<i class="icon icon-plus icon addInfoBtn"></i>'
+      '<div class="info-window">'
+      '<div class="info-header">'
+      '<img src=${place.icon} style="width:16px;height:16px;">${place.name}'
+      '<button onclick="testFcn()">'
+      '<i class="fa fa-plus addInfoBtn"></i>'
       '</button>'
-    '</div>'
-  '</div>';
+      '</div>${place.placeId}'
+      '</div>';
   return searchInfoContent;
 }
