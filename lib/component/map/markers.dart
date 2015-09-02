@@ -97,4 +97,5 @@ openInfoWindow(String content,Marker marker, GMap _map) {
   }
   infowindow.content = content;
   infowindow.open(_map, marker);
+  return infowindow;
 }

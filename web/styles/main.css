@@ -282,7 +282,7 @@ main {
   display: none !important;
 }
 
-#map-canvas {
+map {
   position: absolute;
   top: 0;
   bottom: 0;

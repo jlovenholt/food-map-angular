@@ -4,7 +4,7 @@
 part of map_component;
 
 List<Marker> searchMarkers = <Marker>[];
-var infoWindowAdd;
+InfoWindow infoWindowAdd;
 
 searchByRadius() {
   ///Remove old markers
@@ -65,15 +65,23 @@ void createMarker(PlaceResult place) {
 
   srchMarker.onClick.listen((e) {
     infoWindowAdd = openInfoWindow(searchInfoWindow(place), srchMarker, _map);
+    infoWindowAdd.onDomready.listen((event) {
+      var one = querySelector('map').shadowRoot.querySelector('#map-canvas').querySelector('.addInfoBtn');
+      print(one);
+      one.onClick.listen((e) {
+        addToRestaurants();
+      });
+//    test();
+//    infoWindowAdd.addListener('domready', test(infoWindowAdd));
+    });
   });
 }
 
 String searchInfoWindow(PlaceResult place) {
-  String searchInfoContent =
-      '<div class="info-window">'
+  String searchInfoContent = '<div class="info-window">'
       '<div class="info-header">'
       '<img src=${place.icon} style="width:16px;height:16px;">${place.name}'
-      '<button onclick="testFcn()">'
+      '<button>'
       '<i class="fa fa-plus addInfoBtn"></i>'
       '</button>'
       '</div>${place.placeId}'
