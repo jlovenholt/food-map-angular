@@ -8,7 +8,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Food Map Angular</title>
+  <title>MT Table</title>
   <link rel="icon" type="image/png" href="styles/favicon.png">
   <link rel="stylesheet" href="packages/food_map/font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="styles/main.css">
@@ -22,7 +22,7 @@
     <button class="menu" ng-click="onBarsClick()">
       <i class="fa fa-bars fa-2x"></i>
     </button>
-    <!--<h1 class="title">Meditech Food Map</h1>-->
+    <h1 class="title">MT  Table</h1>
     <section class="app-bar-actions">
       <button ng-click="restaurantSearch()">
         <i class="fa fa-search fa-2x"></i>
@@ -36,10 +36,13 @@
   <ul class="menu-btns">
     <!-- TODOME: add left/right padding-->
     <li class="button" ng-click="onMenuListClick('map')">
-      <div><i class="fa fa-map fa-fw"></i> Map</div>
+      <div><i class="fa fa-map-marker fa-fw"></i> Map</div>
     </li>
-    <li class="button" ng-click="onMenuListClick('settings')">
-      <div><i class="fa fa-cog fa-fw"></i> Settings</div>
+    <li class="button" ng-click="onMenuListClick('filter')">
+      <div><i class="fa fa-filter fa-fw"></i> Filter</div>
+    </li>
+    <li class="button" ng-click="onMenuListClick('add')">
+      <div><i class="fa fa-plus fa-fw"></i> Add</div>
     </li>
     <li class="button" ng-click="onMenuListClick('about')">
       <div><i class="fa fa-info fa-fw"></i> About</div>
@@ -54,8 +57,11 @@
     <div ng-show="menuOption == 'about'">
       <about></about>
     </div>
-    <div ng-show="menuOption == 'settings'">
-      <settings></settings>
+    <div ng-show="menuOption == 'add'">
+      <add></add>
+    </div>
+    <div ng-show="menuOption == 'filter'">
+      <filter></filter>
     </div>
   </div>
 </main>

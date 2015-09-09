@@ -63,16 +63,27 @@ void createMarker(PlaceResult place) {
     infowindow.close();
   }
 
+  openAddTab() {
+    var restaurant = new Restaurant(place.placeId)
+      ..name = place.name
+      ..lat = srchMarker.position.lat
+      ..lng = srchMarker.position.lng
+      ..reviews = [new Review(3, 'asdflkjh')]
+      ..show = true
+      ..website = place.website;
+    restaurants.add(restaurant);
+    addRestaurant(restaurant, _map);
+    infowindow.close();
+  }
+
   srchMarker.onClick.listen((e) {
     infoWindowAdd = openInfoWindow(searchInfoWindow(place), srchMarker, _map);
     infoWindowAdd.onDomready.listen((event) {
-      var one = querySelector('map').shadowRoot.querySelector('#map-canvas').querySelector('.addInfoBtn');
-      print(one);
+      var one = querySelector('map').shadowRoot.querySelector('.addInfoBtn');
       one.onClick.listen((e) {
+        openAddTab();
         addToRestaurants();
       });
-//    test();
-//    infoWindowAdd.addListener('domready', test(infoWindowAdd));
     });
   });
 }
